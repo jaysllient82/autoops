@@ -35,10 +35,10 @@ steps:
       # Write your commands here
       
       sleep 1
-- task: PythonScript@0
+- task: UsePythonVersion@0
   inputs:
-    scriptSource: 'inline'
-    script: 'print(''zhaowenbin walk around'')'
+    versionSpec: '3.x' 
+    addToPath: true 
 
 
 - task: Bash@3
