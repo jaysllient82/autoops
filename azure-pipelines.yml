@@ -10,17 +10,27 @@ parameters:
     values: 
     - defg
     - 8888
+  - name: experimentalTemplate
+    displayName: 'Use experimental build process?'
+    type: boolean
+    default: false
+
 trigger:
 - main
+
 
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- template: test.yml
 
-- script: echo ${{ parameters.yesNo }}
-  displayName: 'Run a one-line script'
+
+
+steps:
+
+- ${{ if eq(parameters.experimentalTemplate, true) }}:
+  - template: test.yml
+- ${{ if not(eq(parameters.experimentalTemplate, true)) }}:
+  - template: test2.yml
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
