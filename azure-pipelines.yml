@@ -7,7 +7,6 @@ parameters:
   - name: test
     displayName: zwbtest
     type: string
-    default: abcd
     values: 
     - defg
     - 8888
