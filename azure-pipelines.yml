@@ -7,9 +7,9 @@ parameters:
   - name: test
     displayName: zwbtest
     type: string
-    default: "abcd"
+    default: abcd
     values: 
-    - "defg"
+    - defg
 trigger:
 - main
 
