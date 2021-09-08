@@ -3,6 +3,13 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+parameters:
+  - name: test
+    displayName: zwbtest
+    type: string
+    default: "abcd"
+    values: 
+    - "defg"
 trigger:
 - main
 
@@ -15,5 +22,5 @@ steps:
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+    echo See ${{ parameters.test}}
   displayName: 'Run a multi-line script'
