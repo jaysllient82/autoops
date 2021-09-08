@@ -10,6 +10,7 @@ parameters:
     default: abcd
     values: 
     - defg
+    - 8888
 trigger:
 - main
 
