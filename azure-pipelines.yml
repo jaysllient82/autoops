@@ -37,7 +37,7 @@ steps:
       sleep 80
 
 - task: Bash@3
-  condition: succeeded()
+  condition: Failed()
   inputs:
     targetType: 'inline'
     script: |
