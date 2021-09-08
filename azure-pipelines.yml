@@ -26,13 +26,7 @@ steps:
   displayName: 'Run a multi-line script'
 
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      # Write your commands here
-      
-      echo 'Hello world'
+
 - task: Bash@3
   timeoutInMinutes: 1
   inputs:
@@ -41,3 +35,12 @@ steps:
       # Write your commands here
       
       sleep 80
+
+- task: Bash@3
+  condition: succeeded()
+  inputs:
+    targetType: 'inline'
+    script: |
+      # Write your commands here
+      
+      echo 'Hello world'
