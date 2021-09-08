@@ -17,7 +17,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- template: test.yml
+
+- script: echo ${{ parameters.yesNo }}
   displayName: 'Run a one-line script'
 
 - script: |
