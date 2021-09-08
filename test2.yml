@@ -1,0 +1,2 @@
+- script: echo zwb my test 
+  displayName: 'Run a one-line script'
