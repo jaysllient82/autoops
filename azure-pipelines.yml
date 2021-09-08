@@ -1,5 +1,2 @@
 trigger:
 - main
-
-extends:
-  template: test5.yml
