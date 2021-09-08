@@ -1,5 +1,5 @@
 trigger:
-- none
+- main
 
 extends:
-  template: test4.yml
+  template: test5.yml
