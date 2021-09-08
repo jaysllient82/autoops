@@ -2,4 +2,4 @@ trigger:
 - none
 
 extends:
-  template: test2.yml
+  template: test4.yml
