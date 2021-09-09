@@ -9,6 +9,7 @@ jobs:
 
 # download the artifact and deploy it only if the build job succeeded
 - job: Deploy
+  dependsOn: Build
   pool:
     vmImage: 'ubuntu-latest'
   steps:
