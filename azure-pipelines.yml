@@ -1,4 +1,10 @@
 jobs:
+- job: Build
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - script: echo dd > dd.txt
+  - script: cat dd.txt
 
 
 # download the artifact and deploy it only if the build job succeeded
@@ -6,16 +12,8 @@ jobs:
   pool:
     vmImage: 'ubuntu-latest'
   steps:
-  - checkout: none #skip checking out the default repository resource
-  - task: DownloadBuildArtifacts@0
-    displayName: 'Download Build Artifacts'
-    inputs:
-      artifactName: WebSite
-      downloadPath: $(System.DefaultWorkingDirectory)
-  - script: ls -alh WebSite
-  - script: cat WebSite/zwbccc.txt
-
-
+  - script: ls -alh
+  - script: cat dd.txt
 
 
 
