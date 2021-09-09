@@ -2,4 +2,4 @@ trigger:
 - main
 
 extends:
-  template: test5.yml
+  template: test6.yml
