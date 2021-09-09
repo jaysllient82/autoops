@@ -3,7 +3,8 @@ jobs:
   pool:
     vmImage: 'ubuntu-latest'
   steps:
-  - script: echo a > a.txt
+  - script: echo a >> a.txt
+  - script: cat a.txt
   - script: ls -alh
   - task: PublishBuildArtifacts@1
     inputs:
@@ -22,6 +23,7 @@ jobs:
       artifactName: WebSite
       downloadPath: $(System.DefaultWorkingDirectory)
   - script: ls -alh WebSite
+  - script: cat a.txt
 
   dependsOn: Build
   condition: succeeded()
