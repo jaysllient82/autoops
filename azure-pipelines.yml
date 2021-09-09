@@ -5,6 +5,12 @@ jobs:
     vmImage: 'ubuntu-latest'
   steps:
   - bash: echo "Hello world"
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '3.x'
+      addToPath: true
+      architecture: 'x64'
+  - script: where python
 
 
 - job: myJob2
@@ -13,5 +19,6 @@ jobs:
     vmImage: 'ubuntu-latest'
   steps:
   - bash: echo "Hello world2"
+  - script: where python
 
 
