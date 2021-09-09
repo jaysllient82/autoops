@@ -1,32 +1,18 @@
-resources:
-  containers:
-  - container: u14
-    image: ubuntu:14.04
+stages:
 
-  - container: u16
-    image: ubuntu:16.04
-
-  - container: u18
-    image: ubuntu:18.04
-
-jobs:
-- job: RunInContainer
-  pool:
-    vmImage: 'ubuntu-18.04'
-
-  strategy:
-    matrix:
-      ubuntu14:
-        containerResource: u14
-      ubuntu16:
-        containerResource: u16
-      ubuntu18:
-        containerResource: u18
-
-  container: $[ variables['containerResource'] ]
-
-  steps:
-  - script: printenv
+- stage: deploy
+  jobs:
+  - deployment: DeployWeb
+    displayName: deploy Web App
+    pool:
+      vmImage: 'Ubuntu-latest'
+    # creates an environment if it doesn't exist
+    environment: 'smarthotel-dev'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo Hello world
 
 
 
