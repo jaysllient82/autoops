@@ -4,7 +4,7 @@ pool:
 container: ubuntu:18.04
 
 steps:
-- script: uname -r
+- script: cat /etc/issue
 
 
 
