@@ -23,7 +23,7 @@ jobs:
       artifactName: WebSite
       downloadPath: $(System.DefaultWorkingDirectory)
   - script: ls -alh WebSite
-  - script: cat a.txt
+  - script: cat WebSite/a.txt
 
   dependsOn: Build
   condition: succeeded()
