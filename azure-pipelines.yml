@@ -21,7 +21,7 @@ jobs:
     inputs:
       artifactName: WebSite
       downloadPath: $(System.DefaultWorkingDirectory)
-  - script: ls -alh
+  - script: ls -alh WebSite
 
   dependsOn: Build
   condition: succeeded()
