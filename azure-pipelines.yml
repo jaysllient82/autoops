@@ -1,5 +1,11 @@
-trigger:
-- main
+pool:
+  vmImage: 'Ubuntu 16.04'
 
-extends:
-  template: test6.yml
+steps:
+# Node install
+- task: NodeTool@0
+  displayName: Node install
+  inputs:
+    versionSpec: '6.x' # The version we're installing
+# Write the installed version to the command line
+- script: which node
