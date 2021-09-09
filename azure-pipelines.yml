@@ -1,19 +1,20 @@
-stages:
+trigger: 
+- main
 
-- stage: deploy
-  jobs:
-  - deployment: DeployWeb
-    displayName: deploy Web App
-    pool:
-      vmImage: 'Ubuntu-latest'
-    # creates an environment if it doesn't exist
-    environment: 'smarthotel-dev'
-    strategy:
-      runOnce:
-        deploy:
+pool: 
+   vmImage: ubuntu-latest
+
+jobs:
+- deployment: VMDeploy
+  displayName: Deploy to VM
+  environment: 
+   name: test
+   resourceType: VirtualMachine
+  strategy:
+     runOnce:
+        deploy:   
           steps:
-          - script: echo Hello world
-
+            - script: ls -alh /u01
 
 
 
