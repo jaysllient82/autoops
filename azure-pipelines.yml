@@ -1,8 +1,17 @@
-# File: azure-pipelines.yml
-trigger:
-- main
+jobs:
+- job: myJob
+  timeoutInMinutes: 10
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - bash: echo "Hello world"
 
-extends:
-  template: test6.yml
+
+- job: myJob2
+  timeoutInMinutes: 10
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - bash: echo "Hello world2"
 
 
