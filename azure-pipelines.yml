@@ -10,7 +10,7 @@ jobs:
       versionSpec: '3.x'
       addToPath: true
       architecture: 'x64'
-  - script: where python
+  - script: which python
 
 
 - job: myJob2
@@ -19,6 +19,6 @@ jobs:
     vmImage: 'ubuntu-latest'
   steps:
   - bash: echo "Hello world2"
-  - script: where python
+  - script: which python
 
 
