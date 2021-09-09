@@ -16,3 +16,5 @@ steps:
     addToPath: true
     architecture: 'x64'
 - script: which python
+- script: pwd
+- script: ls -alh
