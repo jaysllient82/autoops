@@ -9,3 +9,10 @@ steps:
     versionSpec: '6.x' # The version we're installing
 # Write the installed version to the command line
 - script: which node
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.x'
+    addToPath: true
+    architecture: 'x64'
+- script: which python
