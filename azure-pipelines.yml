@@ -1,17 +1,29 @@
-variables:
-  mySimpleVar: simple var value
 jobs:
-- job: myJob
-  timeoutInMinutes: 10
+- job: Build
   pool:
     vmImage: 'ubuntu-latest'
   steps:
-  - script: echo a >> a.txt
-  - script: cat a.txt
+  - script: ls -alh
   - task: PublishBuildArtifacts@1
     inputs:
-      pathtoPublish: taba
+      pathtoPublish: '$(System.DefaultWorkingDirectory)'
       artifactName: WebSite
+
+# download the artifact and deploy it only if the build job succeeded
+- job: Deploy
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - checkout: none #skip checking out the default repository resource
+  - task: DownloadBuildArtifacts@0
+    displayName: 'Download Build Artifacts'
+    inputs:
+      artifactName: WebSite
+      downloadPath: $(System.DefaultWorkingDirectory)
+  - script: ls -alh
+
+  dependsOn: Build
+  condition: succeeded()
 
 
 
