@@ -1,3 +1,5 @@
+variables:
+  mySimpleVar: simple var value
 jobs:
 - job: myJob
   timeoutInMinutes: 10
@@ -22,7 +24,7 @@ jobs:
   pool:
     vmImage: 'ubuntu-latest'
   steps:
-  - bash: echo "Hello world2"
+  - bash: echo $(mySimpleVar)
   - script: which python
   - script: date
 
