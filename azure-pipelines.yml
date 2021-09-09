@@ -8,6 +8,10 @@ jobs:
   steps:
   - script: echo a >> a.txt
   - script: cat a.txt
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: '$(System.DefaultWorkingDirectory)'
+      artifactName: WebSite
 
 
 
