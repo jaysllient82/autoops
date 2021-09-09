@@ -10,7 +10,7 @@ jobs:
   - script: cat a.txt
   - task: PublishBuildArtifacts@1
     inputs:
-      pathtoPublish: '$(System.DefaultWorkingDirectory)'
+      pathtoPublish: taba
       artifactName: WebSite
 
 
