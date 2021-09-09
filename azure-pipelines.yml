@@ -1,20 +1,11 @@
-jobs:
-- job: Build
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - script: echo dd > dd.txt
-  - script: cat dd.txt
+pool:
+  vmImage: 'ubuntu-18.04'
 
+container: ubuntu:18.04
 
-# download the artifact and deploy it only if the build job succeeded
-- job: Deploy
-  dependsOn: Build
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - script: ls -alh
-  - script: cat dd.txt
+steps:
+- script: printenv
+- script: docker ps
 
 
 
