@@ -1,15 +1,5 @@
 jobs:
-- job: Build
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - script: echo a >> zwbccc.txt
-  - script: cat zwbccc.txt
-  - script: ls -alh
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathtoPublish: '$(System.DefaultWorkingDirectory)'
-      artifactName: WebSite
+
 
 # download the artifact and deploy it only if the build job succeeded
 - job: Deploy
@@ -25,8 +15,7 @@ jobs:
   - script: ls -alh WebSite
   - script: cat WebSite/zwbccc.txt
 
-  dependsOn: Build
-  condition: succeeded()
+
 
 
 
