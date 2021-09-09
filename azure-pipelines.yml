@@ -6,25 +6,9 @@ jobs:
   pool:
     vmImage: 'ubuntu-latest'
   steps:
-  - bash: echo "Hello world"
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '3.x'
-      addToPath: true
-      architecture: 'x64'
-  - script: which python
-  - script: date
+  - script: echo a >> a.txt
+  - script: cat a.txt
 
 
-- job: myJob2
 
-  dependsOn: myJob
-
-  timeoutInMinutes: 10
-  pool:
-    vmImage: 'ubuntu-latest'
-  steps:
-  - bash: echo $(mySimpleVar)
-  - script: which python
-  - script: date
 
