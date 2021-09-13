@@ -1,9 +1,11 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-trigger:
-- master
+parameters:
+- name: experimentalTemplate
+  displayName: 'Use experimental build process?'
+  type: boolean
+  default: false
 
-extends:
-  template: simple-param.yaml
-
+steps:
+- ${{ if eq(parameters.experimentalTemplate, true) }}:
+  - template: simple-param.yaml
+- ${{ if not(eq(parameters.experimentalTemplate, true)) }}:
+  - template: simple-param.yaml
