@@ -6,5 +6,4 @@ trigger:
 
 extends:
   template: simple-param.yaml
-  parameters:
-      yesNo: true
+
