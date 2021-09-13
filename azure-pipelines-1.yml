@@ -5,6 +5,6 @@ trigger:
 - master
 
 extends:
-  template: simple-param.yml
+  template: simple-param.yaml
   parameters:
       yesNo: false
